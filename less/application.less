@@ -207,8 +207,18 @@ p.subtitle {
 
 div.filters h2 .scope_title a { color: #222; text-decoration: none; }
 
-h2, .wiki h1 { color: #222; font-size: 26px;}
-h3, .wiki h2 { color: #222; }
+h2 { color: #222; font-size: 26px;}
+h3 { color: #222; }
+
+.wiki
+{
+    h1 { .h1; }
+    h2 { .h2; }
+    h3 { .h3; }
+    h4 { .h4; }
+    h5 { .h5; }
+    h6 { .h6; }
+}
 
 
 div#content > div.wiki {
@@ -339,6 +349,11 @@ table
      //&, thead th , td { border-left: 0 none !important; border-right: 0 none !important; }
      .table;
      thead th { text-align: center; }
+     tbody td.checkbox input[type="checkbox"]
+     {
+        float: none;
+        margin: 8px 0 0 0;
+     }
     }
     th.checkbox, td.checkbox
     {
@@ -1181,7 +1196,13 @@ legend {
     font-size: 20px;
     border-color: #DDD;
 }
-textarea { .form-control; min-height: 80px;}
+textarea {
+    .form-control; min-height: 80px;
+    &.wiki-edit
+    {
+        min-height: 300px;
+    }
+}
 input[type="submit"]
 {
     .btn;
@@ -1231,7 +1252,7 @@ a.icon
     .btn;
     padding-left: 21px;
     background-position: 3px 50%;
-    background: transparent none;
+    background: transparent none no-repeat;
 
     &:visited{ color:#999 }
 
@@ -1260,6 +1281,26 @@ a.icon
         content:"\e175";
     }
 
+}
+
+#browser
+{
+    .icon
+    {
+        .btn-xs;
+        padding-left: 18px;
+        &:before { .glyphicon; }
+        &.icon-folder:before{ content:"\e117" }
+    }
+
+    .open .icon
+    {
+        &.icon-folder
+        {
+            background: none;
+            &:before{ content:"\e118" }
+        }
+    }
 }
 
 #content .tabs ul li a
